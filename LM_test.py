@@ -85,7 +85,7 @@ LM.GeomInput.domaininput.FileName = 'Lower_Miss.pfsol'
 # Domain Geometry
 #-----------------------------------------------------------------------------
 
-LM.Geom.domain.Patches = "ocean land top lake sink bottom"
+LM.Geom.domain.Patches = "ocean land top lake bottom"
 
 #-----------------------------------------------------------------------------
 # Indicator Geometry Input
@@ -141,7 +141,7 @@ LM.Geom.Perm.Names = 'domain'
 
 LM.Geom.domain.Perm.Type = 'Constant'
 LM.Geom.domain.Perm.Value = 0.02
-LM.Geom.domain.Perm.Value = 2e-5
+LM.Geom.domain.Perm.Value = 2e-7
 
 LM.Perm.TensorType = 'TensorByGeom'
 LM.Geom.Perm.TensorByGeom.Names = 'domain b1 b2 g1 g2 g4 g5 g6 g7'
@@ -191,7 +191,7 @@ LM.TimingInfo.StartTime = curr_step
 LM.TimingInfo.StopTime = 60
 LM.TimingInfo.DumpInterval = 1.0
 LM.TimeStep.Type = 'Constant'
-LM.TimeStep.Value = 0.1
+LM.TimeStep.Value = 1.0
 
 # LM.TimeStep.Type = 'Growth'
 # LM.TimeStep.InitialStep = 0.005
@@ -265,7 +265,7 @@ LM.Cycle.constant.alltime.Length = 1
 LM.Cycle.constant.Repeat = -1
 
 LM.Cycle.rainrec.Names = 'rain rec'
-LM.Cycle.rainrec.rain.Length = 10
+LM.Cycle.rainrec.rain.Length = 50
 LM.Cycle.rainrec.rec.Length = 150
 LM.Cycle.rainrec.Repeat = -1
 
@@ -281,14 +281,6 @@ LM.Patch.ocean.BCPressure.Cycle = 'constant'
 LM.Patch.ocean.BCPressure.RefGeom = 'domain'
 LM.Patch.ocean.BCPressure.RefPatch = 'top'
 LM.Patch.ocean.BCPressure.alltime.Value = 0.0
-
-# LM.Patch.sink.BCPressure.Type = 'OverlandDiffusive'
-LM.Patch.sink.BCPressure.Type = 'OverlandKinematic'
-# LM.Patch.sink.BCPressure.Type = 'SeepageFace'
-LM.Patch.sink.BCPressure.Cycle = 'constant'
-LM.Patch.sink.BCPressure.RefGeom = 'domain'
-LM.Patch.sink.BCPressure.RefPatch = 'top'
-LM.Patch.sink.BCPressure.alltime.Value = 0.0
 
 # LM.Patch.lake.BCPressure.Type = 'OverlandDiffusive'
 LM.Patch.lake.BCPressure.Type = 'OverlandKinematic'
@@ -315,7 +307,7 @@ LM.Patch.top.BCPressure.Type = 'OverlandKinematic'
 # LM.Patch.top.BCPressure.Cycle = 'constant'
 # LM.Patch.top.BCPressure.alltime.Value = 0
 LM.Patch.top.BCPressure.Cycle = 'rainrec'
-LM.Patch.top.BCPressure.rain.Value = -0.000001
+LM.Patch.top.BCPressure.rain.Value = -0.001
 LM.Patch.top.BCPressure.rec.Value = 0.0
 
 # LM.Solver.EvapTransFile = True
