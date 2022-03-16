@@ -1,0 +1,14 @@
+<PAMDataset>
+  <Subdataset name="area">
+    <PAMDataset>
+      <PAMRasterBand band="1">
+        <Metadata>
+          <MDI key="STATISTICS_MAXIMUM">4.1653954355298e-06</MDI>
+          <MDI key="STATISTICS_MEAN">3.9676696642291e-06</MDI>
+          <MDI key="STATISTICS_MINIMUM">3.7538470402316e-06</MDI>
+          <MDI key="STATISTICS_STDDEV">1.2054842943275e-07</MDI>
+        </Metadata>
+      </PAMRasterBand>
+    </PAMDataset>
+  </Subdataset>
+</PAMDataset>
